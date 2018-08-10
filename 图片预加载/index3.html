@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>图片预加载之有序加载</title>
+	<style>
+	a{text-decoration: none; cursor: pointer;}
+	.box{
+		text-align: center;;
+	}
+	.btn{
+		display: inline-block;
+		height: 30px;
+		line-height: 30px;
+		border:1px solid #ccc;
+		background-color: #fff;
+		padding: 0 10px;
+		margin-right: 50px;
+		color: #333;
+	}
+	a:hover{ background-color: #eee;}
+	
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="http://img2.woyaogexing.com/2018/07/27/142d78f5cde846b59565c54ab8ca7697!600x600.jpeg" alt="" id="img" width="500" height="500"/>
+		<p>
+			<a class="btn" data-control="prev">上一页</a>
+			<a class="btn" data-control="next">下一页</a>
+		</p>
+	</div>
+
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+	<script src="js/proload.js"></script>
+	<script type="text/javascript">
+		var imgs = [
+			'http://img2.woyaogexing.com/2018/07/27/142d78f5cde846b59565c54ab8ca7697.jpeg',
+			'http://img2.woyaogexing.com/2018/07/27/b783a4bc831a4fdfa142c6d900040cd0.jpeg',
+			'http://img2.woyaogexing.com/2018/07/27/7d142b3da25642e1bd0dd06eb1465b18.jpeg',
+			'http://img2.woyaogexing.com/2018/07/25/be878548356ee26d.jpg',
+			'http://img2.woyaogexing.com/2018/07/25/303c9c47f74aa0cd.jpg'
+		];
+
+
+		$.PreLoad(imgs,{
+			order:'ordered'
+		});
+
+		// var count = 0,
+		// len = imgs.length,
+		// index = 0;
+		// load();
+		// //有序预加载
+		// function load(){
+		// 	var imgObj = new Image();
+		// 	$(imgObj).on('load error',function(){
+		// 		if(count>=len){
+		// 			//所有图片都已经加载完成
+
+		// 		}else{
+		// 			load();	
+		// 		}
+				
+				
+		// 		count++;
+		// 	});
+
+		// 	imgObj.src = imgs[count];
+
+		// }
+
+		// $('.btn').on('click',function(){
+		// 	if('prev' === $(this).data('control')){ //上一张				
+		// 		index = Math.max(0,--index);
+		// 	}else{ //下一张
+		// 		index = Math.min(len - 1,++index);	
+		// 	}
+
+		// 	document.title = (index + 1)+ '/' + len;
+		// 	$("#img").attr("src",imgs[index]);
+
+		// });	
+
+
+
+
+	</script>
+</body>
+</html>
